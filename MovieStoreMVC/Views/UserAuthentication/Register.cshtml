@@ -1,0 +1,62 @@
+﻿@model MovieStoreMVC.Models.DTO.RegistrationModel
+@{
+}
+
+<form class="w-40" asp-action="Register" method="post">
+    <h2 class="pb-10">Register</h2>
+
+    <div class="input-container">
+        <label asp-for="Name" class="w-40">Name</label>
+        <input type="text" class="input" asp-for="Name">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="UserName" class="w-40">UserName</label>
+        <input type="text" class="input" asp-for="UserName">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="UserName"></span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Email" class="w-40">Email</label>
+        <input type="email" class="input" asp-for="Email" placeholder="name@gmail.com">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="UserName"></span>
+    </div>
+
+    <div class="input-container">
+        <label asp-for="Password" class="w-40" 
+        title="Enter Password with minimum length of 6 characters and must contain 1 Uppercase, 1 lowercase, 1 special character and 1 digit">
+            Password 
+        </label>
+        <input type="password" class="input" asp-for="Password" placeholder="Example#123">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="Password"></span>
+    </div>
+    
+    <div class="input-container">
+        <label asp-for="PasswordConfirm" class="w-40">PasswordConfirm</label>
+        <input type="password" class="input" asp-for="PasswordConfirm">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="PasswordConfirm"></span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert mb-1">
+            @TempData["msg"]
+        </div>
+    }
+
+    <div class="input-container">
+        <button class="btn btn-default" type="submit">SignUp</button>
+        <a class="btn btn-sec" href="/UserAuthentication/Login">Login</a>
+    </div>
+</form>
